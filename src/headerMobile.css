@@ -1,0 +1,25 @@
+/*----------menu mobile -------*/
+
+.z-index-2 {
+    z-index: 2;
+}
+
+.overlay {
+    z-index: 2;
+    position: fixed;
+    bottom: 0;
+    top: 0;
+    width: 100%;
+    color: #000;
+    background-color: #fff;
+}
+
+.close-menu {
+    position: absolute;
+    top: 2%;
+    right: 5%;
+}
+
+.link-menu a {
+    font-size: 22px;
+}
