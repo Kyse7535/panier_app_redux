@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Accueil from "../components/accueil";
+import Apropos from "../components/apropos";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import HeaderMobile from "../components/headerMobile";
@@ -47,10 +48,18 @@ const App = (props) => {
             </>
           </Route>
           <Route exact path="/a_propos">
-            <App motif="a_propos" />
+            <>
+              {screenWidth < 1200 ? <HeaderMobile /> : <Header />}
+              <Apropos />
+              <Footer />
+            </>
           </Route>
           <Route exact path="/panier">
-            <App motif="panier" />
+            <>
+              {screenWidth < 1200 ? <HeaderMobile /> : <Header />}
+              <Contact />
+              <Footer />
+            </>
           </Route>
         </Switch>
       </Router>

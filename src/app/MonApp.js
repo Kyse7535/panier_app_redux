@@ -1,35 +1,9 @@
 import "bootstrap/dist/css/bootstrap.css";
 import React, { useEffect, useState } from "react";
-import Article from "../features/article/Article";
-import Accueil from "../components/accueil";
-import Apropos from "../components/apropos";
-import Contact from "../components/contact";
+
 import Header from "../components/header";
 import Footer from "../components/footer";
 import HeaderMobile from "../components/headerMobile";
-import Panier from "../components/panier";
-
-const ContentPage = (props) => {
-  if (props.motif === "accueil") {
-    return <Accueil />;
-  } else if (props.motif === "boutique") {
-    return <Article motif="boutique" />;
-  } else if (props.motif === "produit") {
-    return <Article addToPanier={props.addToPanier} motif="produit" />;
-  } else if (props.motif === "contact") {
-    return <Contact />;
-  } else if (props.motif === "a_propos") {
-    return <Apropos />;
-  } else if (props.motif === "panier") {
-    return (
-      <Panier
-        addToPanier={props.addToPanier}
-        articles={props.articles}
-        coutTotal={props.coutTotal}
-      />
-    );
-  }
-};
 
 const App = (props) => {
   const [nbreArticle, setNbreArticle] = useState(0);

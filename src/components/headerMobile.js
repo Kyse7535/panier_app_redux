@@ -3,6 +3,7 @@ import * as Icon from "react-bootstrap-icons";
 import { Link } from "react-router-dom";
 import "../headerMobile.css";
 import $ from "jquery";
+import { useSelector } from "react-redux";
 
 const HeaderMobile = (props) => {
   const displayMenu = () => {
@@ -13,6 +14,11 @@ const HeaderMobile = (props) => {
   };
 
   const closeMenu = () => $(".overlay").fadeOut();
+  const allArticlePanier = useSelector((state) => state.allArticlePanier);
+  const nbreArticle = allArticlePanier.reduce(
+    (acc, curr) => acc + curr.quantite,
+    0
+  );
 
   return (
     <>
@@ -62,7 +68,7 @@ const HeaderMobile = (props) => {
               >
                 <Icon.Bag className="mr-2 text-black" size="30" />
                 <Link className=" text-decoration-none" to="/panier">
-                  Panier({props.nbreArticle})
+                  Panier({nbreArticle})
                 </Link>
               </li>
             </ul>

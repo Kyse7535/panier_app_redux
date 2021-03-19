@@ -150,3 +150,8 @@ html {
 .liste-panier {
     font-size: 5vw;
 }
+
+.article-added-text {
+    display: none;
+    margin: 1% auto;
+}

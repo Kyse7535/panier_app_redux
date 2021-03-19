@@ -6,9 +6,12 @@ import { deleteArticle } from "../features/articleInPanier/articleInPanierSlice"
 const ContentPanier = (props) => {
   const allArticlePanier = useSelector((state) => state.allArticlePanier);
   const dispatch = useDispatch();
-  const coutTotal = allArticlePanier.reduce((acc, curr) => acc + curr.prix, 0);
+  const coutTotal = allArticlePanier.reduce(
+    (acc, curr) => acc + curr.prix * curr.quantite,
+    0
+  );
   return (
-    <span className=" mt-2 mx-0 z-index-2  content-panier bg-white border border-dark px-0">
+    <span className="mt-2 mx-0 z-index-2 content-panier bg-white border border-dark px-0">
       {coutTotal === 0 ? (
         <p className="m-0">Votre panier est vide</p>
       ) : (
