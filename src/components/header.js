@@ -22,28 +22,28 @@ const Header = (props) => {
           <div className="col-8 offset-2 d-flex justify-content-between py-3">
             <div>Mon logo</div>
             <ul className="my-0 px-0 ">
-              <li className="mx-3 link-menu cursor-pointer">
+              <li className="mx-4 link-menu cursor-pointer">
                 <Link className="text-dark text-decoration-none" to="/">
                   Accueil
                 </Link>
               </li>
-              <li className="mx-3 link-menu cursor-pointer">
+              <li className="mx-4 link-menu cursor-pointer">
                 <Link className="text-dark text-decoration-none" to="/boutique">
                   Boutique
                 </Link>
               </li>
-              <li className="mx-3 link-menu cursor-pointer">
+              <li className="mx-4 link-menu cursor-pointer">
                 <Link className="text-dark text-decoration-none" to="/a_propos">
                   A propos
                 </Link>
               </li>
-              <li className="mx-3 link-menu cursor-pointer">
+              <li className="mx-4 link-menu cursor-pointer">
                 <Link className="text-dark text-decoration-none " to="/contact">
                   Contact
                 </Link>
               </li>
               <li
-                className="mx-3 link-menu cursor-pointer position-relative panier"
+                className="mx-4 link-menu cursor-pointer position-relative panier"
                 onMouseOver={displayPanier}
                 onMouseOut={hidePanier}
               >

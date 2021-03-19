@@ -32,7 +32,7 @@ const Part1 = (props) => {
 
 const Part2 = (props) => {
   return (
-    <div className="row">
+    <div className="row pb-5">
       <div
         className="col-12 col-md-5 offset-md-1 col-lg-3 offset-lg-3 text-md-left my-5 py-5 "
         style={{ fontSize: "15px" }}

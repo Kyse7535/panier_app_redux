@@ -32,7 +32,7 @@ const Produit = (props) => {
   };
 
   return (
-    <div className="container h-100">
+    <div className="container h-100 pb-5">
       <div className="row">
         <div className="col-12 text-left mt-5 mb-3 px-0 ">{match.url}</div>
       </div>
@@ -69,12 +69,12 @@ const Produit = (props) => {
             <input
               type="submit"
               value="AJOUTER AU PANIER"
-              className="w-100 form-control-lg rounded-0 text-white bg-dark border-0 "
+              className="w-75 py-2 fw-light rounded-0 text-white bg-dark border-0 "
             />
           </form>
 
           {screenWidth < 1200 ? (
-            <div className="article-added-text position-fixed top-50 text-black  text-center bg-light center-div">
+            <div className="article-added-text text-black  text-center bg-light">
               <p>Article ajouté au panier</p>
             </div>
           ) : (

@@ -2,7 +2,7 @@
     "name": "panier_app",
     "version": "0.1.0",
     "private": true,
-    "homepage": "http://Kyse7535.github.io/panier_app",
+    "homepage": "http://Kyse7535.github.io/panier_app_redux",
     "dependencies": {
         "@reduxjs/toolkit": "^1.5.0",
         "@testing-library/jest-dom": "^5.11.9",

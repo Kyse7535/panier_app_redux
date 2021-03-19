@@ -29,7 +29,7 @@ const HeaderMobile = (props) => {
         <div id="menu_mobile" className="h-100 w-100">
           <i className="fas fa-times fa-2x close-menu" onClick={hideMenu}></i>
           <div className="h-100  d-flex align-items-center position-static justify-content-center">
-            <ul className="col-12 my-0 px-0 text-white">
+            <ul className="col-12 d-flex flex-column align-items-center justify-content-center my-0 px-0 text-white">
               <li
                 onClick={closeMenu}
                 className="mx-3 py-2 link-menu d-block cursor-pointer"

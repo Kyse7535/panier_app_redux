@@ -25,6 +25,10 @@ html {
     height: auto;
 }
 
+.photo-boutique:hover {
+    transform: scale(1.01);
+}
+
 .photo-produit {
     width: 100%;
     height: auto;
@@ -120,6 +124,10 @@ html {
         width: 25%;
         right: 2%;
     }
+    .link-menu a {
+        font-size: 16px;
+        font-weight: 400;
+    }
 }
 
 .boutique {
@@ -152,6 +160,18 @@ html {
 }
 
 .article-added-text {
+    position: fixed;
+    top: 50%;
+    width: 50%;
+    left: 25%;
+    margin: 3% auto;
     display: none;
-    margin: 1% auto;
+}
+
+.set-border {
+    border: 1px solid #000;
+}
+
+.focus-no-outline:focus {
+    outline: unset;
 }
