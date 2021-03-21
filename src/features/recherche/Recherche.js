@@ -13,14 +13,17 @@ const Recherche = (props) => {
   return (
     <div className="row">
       <div className="col-12 mt-5 mb-3 text-left">
-        <form onSubmit={(e) => e.preventDefault()}>
-          <span className="set-border d-inline-block  boutique-input-search">
-            <Icon.Search className="mx-1" />
+        <form
+          onSubmit={(e) => e.preventDefault()}
+          className="d-flex justify-content-between form-search"
+        >
+          <span className="set-border d-flex justify-content-between boutique-input-search">
+            <Icon.Search className="m-1" />
             <input
               type="text"
               onChange={handleChange}
               value={searchTerm}
-              className="border-0 focus-no-outline d-inline-block w-75"
+              className="border-0 focus-no-outline d-inline-block "
             />
           </span>
           <input

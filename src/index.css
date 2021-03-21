@@ -143,6 +143,10 @@ a {
     min-width: 250px;
 }
 
+.form-search {
+    width: 100%;
+}
+
 .boutique-input-search {
     width: 60%;
 }
@@ -161,6 +165,9 @@ a {
         top: 25%;
         width: 40%;
         right: 2%;
+    }
+    .form-search {
+        width: 50%;
     }
 }
 
@@ -182,6 +189,9 @@ a {
     .submit-code-promo {
         width: 30%;
         font-size: 12px;
+    }
+    .form-search {
+        width: 50%;
     }
 }
 
