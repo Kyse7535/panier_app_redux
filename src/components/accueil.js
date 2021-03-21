@@ -46,7 +46,7 @@ const Part2 = (props) => {
           où sur la page par la méthode du «Glisser et Déposer»
         </p>
         <Link
-          to="/boutique/Ordinateur-portable2"
+          to="/boutique"
           className=" btn-acheter d-inline-block bg-black text-white w-70 text-center small py-2 rounded-pill text-decoration-none"
         >
           ACHETER
