@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/panier_app_redux/static/css/main.aad601ec.chunk.css",
-    "main.js": "/panier_app_redux/static/js/main.54cb73ca.chunk.js",
-    "main.js.map": "/panier_app_redux/static/js/main.54cb73ca.chunk.js.map",
+    "main.css": "/panier_app_redux/static/css/main.c5f36a5e.chunk.css",
+    "main.js": "/panier_app_redux/static/js/main.62780054.chunk.js",
+    "main.js.map": "/panier_app_redux/static/js/main.62780054.chunk.js.map",
     "runtime-main.js": "/panier_app_redux/static/js/runtime-main.8fbef9ab.js",
     "runtime-main.js.map": "/panier_app_redux/static/js/runtime-main.8fbef9ab.js.map",
     "static/css/2.2295ac45.chunk.css": "/panier_app_redux/static/css/2.2295ac45.chunk.css",
@@ -12,14 +12,14 @@
     "static/js/3.9f42e3f3.chunk.js.map": "/panier_app_redux/static/js/3.9f42e3f3.chunk.js.map",
     "index.html": "/panier_app_redux/index.html",
     "static/css/2.2295ac45.chunk.css.map": "/panier_app_redux/static/css/2.2295ac45.chunk.css.map",
-    "static/css/main.aad601ec.chunk.css.map": "/panier_app_redux/static/css/main.aad601ec.chunk.css.map",
+    "static/css/main.c5f36a5e.chunk.css.map": "/panier_app_redux/static/css/main.c5f36a5e.chunk.css.map",
     "static/js/2.8216c80b.chunk.js.LICENSE.txt": "/panier_app_redux/static/js/2.8216c80b.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.8fbef9ab.js",
     "static/css/2.2295ac45.chunk.css",
     "static/js/2.8216c80b.chunk.js",
-    "static/css/main.aad601ec.chunk.css",
-    "static/js/main.54cb73ca.chunk.js"
+    "static/css/main.c5f36a5e.chunk.css",
+    "static/js/main.62780054.chunk.js"
   ]
 }
