@@ -9,6 +9,7 @@ import { updateWidth } from "../features/screenWidth/ScreenWidthSlice";
 import Boutique from "../components/boutique";
 import Contact from "../components/contact";
 import Produit from "../features/produit/Produit";
+import Panier from "../components/panier";
 const App = (props) => {
   const screenWidth = useSelector((state) => state.screenWidth);
   const dispatch = useDispatch();
@@ -55,11 +56,11 @@ const App = (props) => {
             </>
           </Route>
           <Route exact path="/panier">
-            <>
+            <div>
               {screenWidth < 1200 ? <HeaderMobile /> : <Header />}
-              <Contact />
+              <Panier />
               <Footer />
-            </>
+            </div>
           </Route>
         </Switch>
       </Router>

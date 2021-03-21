@@ -9,7 +9,6 @@ const options = {
         (article) => article.id === action.payload.article.id
       );
       if (index === -1) {
-        console.log(action.payload);
         const article = {
           id: action.payload.article.id,
           titre: action.payload.article.titre,
@@ -31,9 +30,20 @@ const options = {
       state.splice(index, 1);
       return state;
     },
+    modifyQtiteArticle: (state, action) => {
+      const index = state.findIndex(
+        (article) => article.id === action.payload.id
+      );
+      state[index].quantite = parseInt(action.payload.valeur);
+      return state;
+    },
   },
 };
 
 const listeArticlePanierSlice = createSlice(options);
-export const { addArticle, deleteArticle } = listeArticlePanierSlice.actions;
+export const {
+  addArticle,
+  deleteArticle,
+  modifyQtiteArticle,
+} = listeArticlePanierSlice.actions;
 export const allArticlePanierReducer = listeArticlePanierSlice.reducer;

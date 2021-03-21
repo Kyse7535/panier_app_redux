@@ -72,9 +72,7 @@ const Accueil = (props) => {
             backgroundSize: "cover",
             height: "450px",
           }}
-        >
-          {" "}
-        </div>
+        ></div>
       </div>
       <div className="row bg-black text-white">
         <div className="col-12 col-md-3 center-div py-5 my-5">

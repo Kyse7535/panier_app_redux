@@ -11,23 +11,25 @@ const Recherche = (props) => {
     dispatch(updateSearchTerm(e.target.value));
   };
   return (
-    <div className="col-12 mt-3 text-left">
-      <form onSubmit={(e) => e.preventDefault()}>
-        <span className="set-border d-inline-block ">
-          <Icon.Search className="mx-1" />
+    <div className="row">
+      <div className="col-12 mt-5 mb-3 text-left">
+        <form onSubmit={(e) => e.preventDefault()}>
+          <span className="set-border d-inline-block ">
+            <Icon.Search className="mx-1" />
+            <input
+              type="text"
+              onChange={handleChange}
+              value={searchTerm}
+              className="border-0 focus-no-outline"
+            />
+          </span>
           <input
-            type="text"
-            onChange={handleChange}
-            value={searchTerm}
-            className="border-0 focus-no-outline"
+            type="submit"
+            value="Rechercher"
+            className="border-0 mx-1 py-1"
           />
-        </span>
-        <input
-          type="submit"
-          value="Rechercher"
-          className="border-0 mx-1 py-1"
-        />
-      </form>
+        </form>
+      </div>
     </div>
   );
 };

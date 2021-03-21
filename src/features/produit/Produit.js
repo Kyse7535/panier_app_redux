@@ -69,7 +69,7 @@ const Produit = (props) => {
             <input
               type="submit"
               value="AJOUTER AU PANIER"
-              className="w-75 py-2 fw-light rounded-0 text-white bg-dark border-0 "
+              className="w-100 py-2 fw-light rounded-0 text-white bg-dark border-0 "
             />
           </form>
 

@@ -1,9 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,500;1,100;1,200;1,400;1,500&display=swap");
+body,
+html {
+    min-height: 100vh;
+    min-width: 400px;
+}
+
 body {
     margin: 0;
     font-family: "Raleway";
     text-align: center;
-    min-width: 300px;
+    position: relative;
 }
 
 .link-menu {
@@ -13,11 +19,6 @@ body {
 a {
     text-decoration: none;
     color: #000;
-}
-
-body,
-html {
-    height: 100%;
 }
 
 .photo-boutique {
@@ -51,6 +52,11 @@ html {
     height: auto;
 }
 
+.photo-page-panier {
+    width: 80%;
+    height: auto;
+}
+
 .photo-accueil {
     width: 450px;
     height: auto;
@@ -61,7 +67,7 @@ html {
 }
 
 .w-31 {
-    width: 31%;
+    min-width: 31%;
 }
 
 .letter-spacing-3 {
@@ -73,7 +79,11 @@ html {
 }
 
 .w-70 {
-    width: 70%;
+    min-width: 70%;
+}
+
+.w-72 {
+    min-width: 72%;
 }
 
 .btn-acheter:hover {
@@ -85,15 +95,19 @@ html {
 }
 
 .w-18 {
-    width: 18%;
+    min-width: 18%;
 }
 
 .w-21 {
-    width: 21%;
+    min-width: 21%;
 }
 
 .w-12 {
-    width: 12%;
+    min-width: 12%;
+}
+
+.w-15 {
+    min-width: 15%;
 }
 
 .center-div {
@@ -106,6 +120,16 @@ html {
     top: 25%;
     width: 70%;
     right: 10%;
+}
+
+.input-code-promo {
+    width: 60%;
+    font-size: 10px;
+}
+
+.submit-code-promo {
+    width: 30%;
+    font-size: 10px;
 }
 
 @media (min-width: 768px) and (max-width: 1199px) {
@@ -127,6 +151,14 @@ html {
     .link-menu a {
         font-size: 16px;
         font-weight: 400;
+    }
+    .input-code-promo {
+        width: 65%;
+        font-size: 12px;
+    }
+    .submit-code-promo {
+        width: 30%;
+        font-size: 12px;
     }
 }
 
@@ -174,4 +206,15 @@ html {
 
 .focus-no-outline:focus {
     outline: unset;
+}
+
+.page-panier li {
+    list-style-type: none;
+    display: inline-block;
+    font-size: calc(10px + 0.5vw);
+    width: 19%;
+}
+
+.error-code-promo {
+    display: none;
 }

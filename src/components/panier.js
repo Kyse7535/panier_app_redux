@@ -1,20 +1,31 @@
 import React from "react";
+import ResumeCmd from "./resumeCmd";
+import PanierCmd from "./panierCmd";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Panier = (props) => {
-	const panierVide = (
-		<div className="row">
-			<div className="col-12 text-left mt-4 px-2 h-100">
-				<p>Votre panier est vide</p> <hr />
-			</div>
-		</div>
-	);
+  const allArticlePanier = useSelector((state) => state.allArticlePanier);
+  return (
+    <div className="container-fluid">
+      <div className="row p-3 ">
+        {allArticlePanier.length === 0 ? (
+          <div className="col-12 col-md-8 offset-md-2 text-left border-bottom pb-2 my-5">
+            Votre panier est vide
+          </div>
+        ) : (
+          <>
+            <div className="col-12 col-md-8 offset-md-2 text-left px-0 mb-5 small">
+              <Link to="/boutique">continuer les achats</Link>
+            </div>
 
-	const panierFilled = <div>Mon panier</div>;
-	return (
-		<div className="container">
-			{props.articles.length === 0 ? panierVide : panierFilled}
-		</div>
-	);
+            <PanierCmd />
+            <ResumeCmd />
+          </>
+        )}
+      </div>
+    </div>
+  );
 };
 
 export default Panier;

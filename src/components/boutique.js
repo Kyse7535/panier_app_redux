@@ -11,14 +11,14 @@ export const Boutique = (props) => {
   );
   return (
     <>
-      <div className="container pb-5">
+      <div className="container p-3">
         <Trier />
 
+        <Recherche />
         <div className="row py-4">
-          <Recherche />
           {listeArticle.length === 0 ? (
             <div className="col-12">
-              <p>Aucun article trouvé</p>
+              <p className="my-5">Aucun article trouvé</p>
             </div>
           ) : (
             listeArticle.map((article) => (
