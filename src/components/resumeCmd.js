@@ -19,7 +19,7 @@ const ResumeCmd = (props) => {
     0
   );
   return (
-    <div className="col-12 col-md-3 pl-md-3 pr-0 text-left">
+    <div className="col-12 col-md-3 pl-md-3 px-0 text-left">
       <h6 className="text-left fw-bold">Resume de la commande</h6>
       <p className="d-flex justify-content-between mb-md-3">
         <span>Sous total:</span>

@@ -76,7 +76,7 @@ const HeaderMobile = (props) => {
         </div>
       </div>
       <div className="hamburger d-flex justify-content-between py-1 px-5">
-        <div>logo</div>
+        <div>logo1</div>
         <i
           className="fas fa-bars fa-2x"
           id="open-menu"

@@ -2,7 +2,6 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Accueil from "../components/accueil";
 import Apropos from "../components/apropos";
 import Header from "../components/header";
-import Footer from "../components/footer";
 import HeaderMobile from "../components/headerMobile";
 import { useSelector, useDispatch } from "react-redux";
 import { updateWidth } from "../features/screenWidth/ScreenWidthSlice";
@@ -21,45 +20,39 @@ const App = (props) => {
       <Router basename={process.env.PUBLIC_URL}>
         <Switch>
           <Route exact path="/">
-            <>
-              {screenWidth < 1200 ? <HeaderMobile /> : <Header />}
-              <Accueil />
-              <Footer />
-            </>
-          </Route>
-          <Route exact path="/boutique">
-            <>
-              {screenWidth < 1200 ? <HeaderMobile /> : <Header />}
-              <Boutique />
-              <Footer />
-            </>
-          </Route>
-          <Route exact path="/contact">
-            <>
-              {screenWidth < 1200 ? <HeaderMobile /> : <Header />}
-              <Contact />
-              <Footer />
-            </>
-          </Route>
-          <Route exact path={`/boutique/:titreArticle`}>
-            <>
-              {screenWidth < 1200 ? <HeaderMobile /> : <Header />}
-              <Produit />
-              <Footer />
-            </>
-          </Route>
-          <Route exact path="/a_propos">
-            <>
-              {screenWidth < 1200 ? <HeaderMobile /> : <Header />}
-              <Apropos />
-              <Footer />
-            </>
-          </Route>
-          <Route exact path="/panier">
             <div>
               {screenWidth < 1200 ? <HeaderMobile /> : <Header />}
+              <Accueil />
+            </div>
+          </Route>
+          <Route exact path="/boutique">
+            <div>
+              {screenWidth < 1200 ? <HeaderMobile /> : <Header />}
+              <Boutique />
+            </div>
+          </Route>
+          <Route exact path="/contact">
+            <div className="min-w-250">
+              {screenWidth < 1200 ? <HeaderMobile /> : <Header />}
+              <Contact />
+            </div>
+          </Route>
+          <Route exact path={`/boutique/:titreArticle`}>
+            <div className="min-w-250">
+              {screenWidth < 1200 ? <HeaderMobile /> : <Header />}
+              <Produit />
+            </div>
+          </Route>
+          <Route exact path="/a_propos">
+            <div className="min-w-250">
+              {screenWidth < 1200 ? <HeaderMobile /> : <Header />}
+              <Apropos />
+            </div>
+          </Route>
+          <Route exact path="/panier">
+            <div className="min-w-300">
+              {screenWidth < 1200 ? <HeaderMobile /> : <Header />}
               <Panier />
-              <Footer />
             </div>
           </Route>
         </Switch>

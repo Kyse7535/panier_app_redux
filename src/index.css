@@ -2,14 +2,13 @@
 body,
 html {
     min-height: 100vh;
-    min-width: 400px;
+    min-width: auto;
 }
 
 body {
     margin: 0;
     font-family: "Raleway";
     text-align: center;
-    position: relative;
 }
 
 .link-menu {
@@ -41,6 +40,10 @@ a {
 
 .opacity-0 {
     opacity: 0;
+}
+
+.font-size-12 {
+    font-size: 12px;
 }
 
 .opacity-1 {
@@ -132,6 +135,26 @@ a {
     font-size: 10px;
 }
 
+.min-w-300 {
+    min-width: 300px;
+}
+
+.min-w-250 {
+    min-width: 250px;
+}
+
+.boutique-input-search {
+    width: 60%;
+}
+
+.boutique-submit-search {
+    width: 35%;
+}
+
+.min-vh-75 {
+    min-height: 75vh;
+}
+
 @media (min-width: 768px) and (max-width: 1199px) {
     .part-1 {
         position: absolute;
@@ -211,7 +234,7 @@ a {
 .page-panier li {
     list-style-type: none;
     display: inline-block;
-    font-size: calc(10px + 0.5vw);
+    font-size: calc(10px + 0.1vw);
     width: 19%;
 }
 

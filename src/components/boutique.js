@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Trier from "../components/trier";
 import Recherche from "../features/recherche/Recherche";
+import Footer from "./footer";
 
 export const Boutique = (props) => {
   const searchTerm = useSelector((state) => state.searchTerm);
@@ -11,7 +12,7 @@ export const Boutique = (props) => {
   );
   return (
     <>
-      <div className="container p-3">
+      <div className="container p-3 mb-5">
         <Trier />
 
         <Recherche />
@@ -45,6 +46,7 @@ export const Boutique = (props) => {
           )}
         </div>
       </div>
+      <Footer />
     </>
   );
 };

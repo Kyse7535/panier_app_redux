@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Footer from "./footer.js";
 
 const Part1 = (props) => {
   return (
@@ -32,7 +33,7 @@ const Part1 = (props) => {
 
 const Part2 = (props) => {
   return (
-    <div className="row pb-5">
+    <div className="row ">
       <div
         className="col-12 col-md-5 offset-md-1 col-lg-3 offset-lg-3 text-md-left my-5 py-5 "
         style={{ fontSize: "15px" }}
@@ -61,31 +62,35 @@ const Part2 = (props) => {
 };
 const Accueil = (props) => {
   return (
-    <div className="container-fluid ">
-      <Part1 />
-      <Part2 />
-      <div className="row">
-        <div
-          className="col-12 part-3"
-          style={{
-            background: `url(${process.env.PUBLIC_URL}/ipad.jpg) center no-repeat`,
-            backgroundSize: "cover",
-            height: "450px",
-          }}
-        ></div>
-      </div>
-      <div className="row bg-black text-white">
-        <div className="col-12 col-md-3 center-div py-5 my-5">
-          <h6 className="letter-spacing-3 fw-bolder">TECHNOLOGIE AVANCEE</h6>
-          <p className="p-3  font-size-14 text-center">
-            Ceci est un paragraphe. Survolez-moi avec votre souris d'ordinateur
-            et cliquez une fois pour que le menu s'affiche. Double-cliquez pour
-            éditer directement le texte. Vous pouvez aussi me déplacer n'importe
-            où sur la page par la méthode du «Glisser et Déposer»
-          </p>
+    <>
+      <div className="container-fluid mb-5">
+        <Part1 />
+        <Part2 />
+        <div className="row">
+          <div
+            className="col-12 part-3"
+            style={{
+              background: `url(${process.env.PUBLIC_URL}/ipad.jpg) center no-repeat`,
+              backgroundSize: "cover",
+              height: "450px",
+            }}
+          ></div>
+        </div>
+        <div className="row bg-black text-white ">
+          <div className="col-12 col-md-3 center-div py-5 my-4">
+            <h6 className="letter-spacing-3 fw-bolder">TECHNOLOGIE AVANCEE</h6>
+            <p className="p-3  font-size-14 text-center">
+              Ceci est un paragraphe. Survolez-moi avec votre souris
+              d'ordinateur et cliquez une fois pour que le menu s'affiche.
+              Double-cliquez pour éditer directement le texte. Vous pouvez aussi
+              me déplacer n'importe où sur la page par la méthode du «Glisser et
+              Déposer»
+            </p>
+          </div>
         </div>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 };
 
