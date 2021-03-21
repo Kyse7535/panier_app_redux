@@ -148,11 +148,12 @@ a {
 }
 
 .boutique-input-search {
-    width: 60%;
+    width: 65%;
 }
 
 .boutique-submit-search {
     width: 35%;
+    font-size: calc(12px + 0.1vw);
 }
 
 .min-vh-75 {
@@ -191,7 +192,7 @@ a {
         font-size: 12px;
     }
     .form-search {
-        width: 50%;
+        width: 40%;
     }
 }
 

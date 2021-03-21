@@ -23,7 +23,7 @@ const Recherche = (props) => {
               type="text"
               onChange={handleChange}
               value={searchTerm}
-              className="border-0 focus-no-outline d-inline-block "
+              className="border-0 focus-no-outline d-inline-block w-75 mx-1"
             />
           </span>
           <input
