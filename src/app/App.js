@@ -9,6 +9,7 @@ import Boutique from "../components/boutique";
 import Contact from "../components/contact";
 import Produit from "../features/produit/Produit";
 import Panier from "../components/panier";
+import Footer from "../components/footer";
 const App = (props) => {
   const screenWidth = useSelector((state) => state.screenWidth);
   const dispatch = useDispatch();
@@ -20,33 +21,38 @@ const App = (props) => {
       <Router basename={process.env.PUBLIC_URL}>
         <Switch>
           <Route exact path="/">
-            <div>
+            <div className="min-w-250">
               {screenWidth < 1200 ? <HeaderMobile /> : <Header />}
               <Accueil />
+              <Footer />
             </div>
           </Route>
           <Route exact path="/boutique">
             <div>
               {screenWidth < 1200 ? <HeaderMobile /> : <Header />}
               <Boutique />
+              <Footer />
             </div>
           </Route>
           <Route exact path="/contact">
             <div className="min-w-250">
               {screenWidth < 1200 ? <HeaderMobile /> : <Header />}
               <Contact />
+              <Footer />
             </div>
           </Route>
           <Route exact path={`/boutique/:titreArticle`}>
             <div className="min-w-250">
               {screenWidth < 1200 ? <HeaderMobile /> : <Header />}
               <Produit />
+              <Footer />
             </div>
           </Route>
           <Route exact path="/a_propos">
             <div className="min-w-250">
               {screenWidth < 1200 ? <HeaderMobile /> : <Header />}
               <Apropos />
+              <Footer />
             </div>
           </Route>
           <Route exact path="/panier">

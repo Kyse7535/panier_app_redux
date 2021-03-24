@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Footer from "./footer.js";
 
 const Part1 = (props) => {
   return (
@@ -63,7 +62,7 @@ const Part2 = (props) => {
 const Accueil = (props) => {
   return (
     <>
-      <div className="container-fluid mb-5">
+      <div className="container-fluid">
         <Part1 />
         <Part2 />
         <div className="row">
@@ -89,7 +88,6 @@ const Accueil = (props) => {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 };
