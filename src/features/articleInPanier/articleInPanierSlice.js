@@ -16,6 +16,7 @@ const options = {
           prix: action.payload.article.prix,
           quantite: parseInt(action.payload.quantite),
         };
+        console.log(action.payload.quantite);
         state.push(article);
       } else {
         state[index].quantite += parseInt(action.payload.quantite);
@@ -34,7 +35,8 @@ const options = {
       const index = state.findIndex(
         (article) => article.id === action.payload.id
       );
-      state[index].quantite = parseInt(action.payload.valeur);
+      state[index].quantite =
+        !action.payload.valeur === "" ? parseInt(action.payload.valeur) : 1;
       return state;
     },
   },

@@ -2,6 +2,7 @@ import React from "react";
 import * as Icon from "react-bootstrap-icons";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteArticle } from "../features/articleInPanier/articleInPanierSlice";
+import { Link } from "react-router-dom";
 
 const ContentPanier = (props) => {
   const allArticlePanier = useSelector((state) => state.allArticlePanier);
@@ -49,9 +50,11 @@ const ContentPanier = (props) => {
               <span className="">SOUS-TOTAL</span>
               <span className="">{coutTotal}€</span>
             </p>
-            <button className=" w-75 text-white bg-dark border-0  mb-2 py-1 cursor-pointer">
-              PASSER AU PAIEMENT
-            </button>
+            <Link to="/panier">
+              <button className=" w-75 text-white bg-dark border-0  mb-2 py-1 cursor-pointer">
+                PASSER AU PAIEMENT
+              </button>
+            </Link>
           </div>
         </>
       )}

@@ -20,7 +20,6 @@ const Panier = (props) => {
               <div className="col-12 col-md-8 offset-md-2 text-left px-0 mb-5 small">
                 <Link to="/boutique">continuer les achats</Link>
               </div>
-
               <PanierCmd />
               <ResumeCmd />
             </>

@@ -7,9 +7,11 @@ import uniqid from "uniqid";
 const PanierCmd = (props) => {
   const allArticlePanier = useSelector((state) => state.allArticlePanier);
   const dispatch = useDispatch();
+
   const handleChange = (id, e) => {
     e.preventDefault();
     const valeur = e.target.value;
+    console.log(valeur === "");
     dispatch(modifyQtiteArticle({ id, valeur }));
   };
 
@@ -52,7 +54,7 @@ const PanierCmd = (props) => {
           <li key={uniqid()} className="small w-21">
             {article.titre}
             <button
-              className="border-0 bg-white text-black py-1"
+              className="border-0 bg-white text-black py-1 d-block px-0 text-decoration-underline"
               onClick={(e) => removeArticle(article.id, e)}
               key={uniqid()}
             >
@@ -66,8 +68,9 @@ const PanierCmd = (props) => {
             <form>
               <input
                 onChange={(e) => handleChange(article.id, e)}
-                className="d-inline-block w-75 m-md-1"
+                className="d-inline-block w-50 m-md-1 py-1"
                 type="number"
+                min="1"
                 value={article.quantite}
               />
             </form>
