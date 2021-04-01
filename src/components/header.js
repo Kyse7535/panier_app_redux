@@ -6,7 +6,15 @@ import ContentPanier from "../components/contentPanier";
 import { useSelector } from "react-redux";
 
 const Header = (props) => {
+  /**
+   * affiche le resume du panier lorsqu'on survole panier dans header
+   * @returns
+   */
   const displayPanier = () => $(".content-panier").css("display", "block");
+  /**
+   * cache le resume du panier
+   * @returns
+   */
   const hidePanier = () =>
     $(".content-panier").delay(2000).css("display", "none");
 

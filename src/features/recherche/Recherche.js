@@ -3,9 +3,21 @@ import { useSelector, useDispatch } from "react-redux";
 import { updateSearchTerm } from "./RechercheSlice";
 import * as Icon from "react-bootstrap-icons";
 
+/**
+ * Cette fonction permet de gérer la recherche d'article dans la boutique
+ * @param {Object} props
+ * @returns un formulaire de recherche
+ */
 const Recherche = (props) => {
   const searchTerm = useSelector((state) => state.searchTerm);
+  s;
   const dispatch = useDispatch();
+
+  /**
+   * cette fonction recupère les evenements reçu au niveau du champ de saisie de recherche,
+   * et le transmet au store à travers le disptach
+   * @param {event} e
+   */
   const handleChange = (e) => {
     e.preventDefault();
     dispatch(updateSearchTerm(e.target.value));

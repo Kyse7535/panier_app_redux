@@ -4,6 +4,11 @@ import { useSelector } from "react-redux";
 import Trier from "../components/trier";
 import Recherche from "../features/recherche/Recherche";
 
+/**
+ * affiche la pasge boutique
+ * @param {object} props
+ * @returns
+ */
 export const Boutique = (props) => {
   const searchTerm = useSelector((state) => state.searchTerm);
   const listeArticle = useSelector((state) =>

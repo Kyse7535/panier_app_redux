@@ -7,8 +7,20 @@ import {
   sortDateAsc,
   sortDateDesc,
 } from "../features/article/articleSlice";
+
+/**
+ *
+ * @param {object} props
+ * @returns un formulaire permettant de trier des articles dans la boutique
+ */
 const Trier = (props) => {
   const dispatch = useDispatch();
+
+  /**
+   * cette fonction recupere la valeur du select dans le formulaire et transmet l'action correspondante au store
+   * afin de faire le tri voulu.
+   * @param {string} val
+   */
   const sort = (val) => {
     if (val === "AtoZ") {
       dispatch(sortAToZ("titre"));

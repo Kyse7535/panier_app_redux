@@ -4,6 +4,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { deleteArticle } from "../features/articleInPanier/articleInPanierSlice";
 import { Link } from "react-router-dom";
 
+/**
+ * cette fonction est appelé lorsqu'on survole panier dans header
+ * @param {object} props
+ * @returns
+ */
 const ContentPanier = (props) => {
   const allArticlePanier = useSelector((state) => state.allArticlePanier);
   const dispatch = useDispatch();

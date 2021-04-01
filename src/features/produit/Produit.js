@@ -7,22 +7,47 @@ import * as Icon from "react-bootstrap-icons";
 import $ from "jquery";
 import Footer from "../../components/footer";
 
+/**
+ *
+ * @param {Obect} props
+ * @returns page de description d'un produit ou article
+ */
 const Produit = (props) => {
+  /**
+   * useRouteMatch tente de faire correspondre un URL de la m^me maniere que <Route />
+   */
   const match = useRouteMatch();
   const allArticles = useSelector((state) => state.listeArticle);
   const screenWidth = useSelector((state) => state.screenWidth);
   const quantite = useSelector((state) => state.articleQuantite);
   const dispatch = useDispatch();
+  /**
+   * cette instruction cherche dans la liste des articles, celui dont le titre correspond
+   * au titre qui figure dans le lien
+   */
   const article = allArticles.find(
     ({ titre }) => titre === match.params.titreArticle
   );
 
+  /**
+   *
+   * Affiche un apperçu du anier chaque fois qu'on ajoute un article
+   */
   const togglePanier = () =>
     $(".content-panier").css("display", "block").delay(2000).fadeOut();
 
+  /**
+   * Permet d'afficher un text, confirmant l'ajout d'un article au panier.
+   *  Ce texte ne s'affiche que des ecrans < 1200px
+   *
+   */
   const toggleArticleAddedText = () =>
     $(".article-added-text").css("display", "block").delay(2000).fadeOut();
 
+  /**
+   * cette fonction prend un evenement et transmet au store l'action d'ajout d'un article.
+   * @param {event} e
+   */
   const handleSubmit = (e) => {
     e.preventDefault();
     togglePanier();

@@ -4,10 +4,21 @@ import {
   deleteArticle,
 } from "../features/articleInPanier/articleInPanierSlice";
 import uniqid from "uniqid";
+
+/**
+ *cette fonction affiche le bloc panier dans la page panier
+ * @param {object} props
+ * @returns
+ */
 const PanierCmd = (props) => {
   const allArticlePanier = useSelector((state) => state.allArticlePanier);
   const dispatch = useDispatch();
 
+  /**
+   * modifie la quantité de l'article avec l'id spécifié dans le panier
+   * @param {int} id
+   * @param {event} e
+   */
   const handleChange = (id, e) => {
     e.preventDefault();
     const valeur = e.target.value;
@@ -15,6 +26,11 @@ const PanierCmd = (props) => {
     dispatch(modifyQtiteArticle({ id, valeur }));
   };
 
+  /**
+   * supprime définitivment article avec l'id spécifié dans le panier
+   * @param {int} id
+   * @param {event} e
+   */
   const removeArticle = (id, e) => {
     e.preventDefault();
     dispatch(deleteArticle(id));

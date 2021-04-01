@@ -5,6 +5,11 @@ import Footer from "./footer";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
+/**
+ * Cette fonction permet d'affiche la page du panier, lorsqu'on clique sur panier dans le Header
+ * @param {object} props
+ * @returns
+ */
 const Panier = (props) => {
   const allArticlePanier = useSelector((state) => state.allArticlePanier);
   return (

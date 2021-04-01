@@ -5,16 +5,32 @@ import "../headerMobile.css";
 import $ from "jquery";
 import { useSelector } from "react-redux";
 
+/**
+ * Cette fonction est un header pour les ecrans < 1200px
+ * @param {object} props
+ * @returns
+ */
 const HeaderMobile = (props) => {
+  /**
+   * affiche le contenu du menu en cliquant sur le hamburger
+   */
   const displayMenu = () => {
     $(".overlay").fadeIn();
   };
+
+  /**
+   * cache le contenu du menu en cliquant sur le X
+   */
   const hideMenu = () => {
     $(".overlay").fadeOut();
   };
 
   const closeMenu = () => $(".overlay").fadeOut();
+
   const allArticlePanier = useSelector((state) => state.allArticlePanier);
+  /**
+   * calcule la quantité des articles dans le panier
+   */
   const nbreArticle = allArticlePanier.reduce(
     (acc, curr) => acc + curr.quantite,
     0

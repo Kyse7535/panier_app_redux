@@ -26,6 +26,13 @@ const article3 = {
   datePublication: new Date(2019, 1).toString(),
 };
 
+/**
+ *
+ * @param {object[]} state
+ * @param {String} par
+ * @returns retourne le tableau state trié dans l'ordre en fonction de la variable par saisie.
+ * la variable par peut-etre (trier A à Z, prix asc , moins récent)
+ */
 const sortAscFunc = (state, par) => {
   let change = true;
   while (change) {
@@ -41,6 +48,14 @@ const sortAscFunc = (state, par) => {
   }
   return state;
 };
+
+/**
+ *
+ * @param {object[]} state
+ * @param {String} par
+ * @returns retourne le tableau state trié dans l'ordre en fonction de la variable par saisie.
+ * la variable par peut-etre (trier Z à A, prix desc , plus récent)
+ */
 const sortDescFunc = (state, par) => {
   let change = true;
   while (change) {
@@ -57,6 +72,10 @@ const sortDescFunc = (state, par) => {
   return state;
 };
 
+/**
+ * cette variable permet de définir le nom de la tranche de réduction, initialiser son state,
+ * et creer des créateurs d'actions définis dans reducers
+ */
 const options = {
   name: "article",
   initialState: [article, article2, article3],
@@ -70,10 +89,22 @@ const options = {
   },
 };
 
+/**
+ * la fonction creatSlice renvoie des créateurs d'actions définis dans options, et une tranche du réducteur
+ *
+ */
 const articleSlice = createSlice(options);
 
+/**
+ * crée un selecteur de tranches
+ * @param {object} state
+ * @returns tranche de réduction su store
+ */
 export const selectListeArticle = (state) => state.listeArticle;
 
+/**
+ * exporte le créateur d'action défini dans la variable options
+ */
 export const {
   sortAToZ,
   sortZToA,
