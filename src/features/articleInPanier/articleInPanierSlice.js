@@ -39,8 +39,8 @@ const options = {
       const index = state.findIndex(
         (article) => article.id === action.payload.id
       );
-      state[index].quantite =
-        !action.payload.valeur === "" ? parseInt(action.payload.valeur) : 1;
+      state[index].quantite = parseInt(action.payload.valeur);
+
       return state;
     },
   },

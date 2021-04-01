@@ -21,8 +21,8 @@ const PanierCmd = (props) => {
    */
   const handleChange = (id, e) => {
     e.preventDefault();
-    const valeur = e.target.value;
-    console.log(valeur === "");
+
+    const valeur = e.target.value === "" ? 1 : e.target.value;
     dispatch(modifyQtiteArticle({ id, valeur }));
   };
 

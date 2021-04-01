@@ -10,7 +10,7 @@ import * as Icon from "react-bootstrap-icons";
  */
 const Recherche = (props) => {
   const searchTerm = useSelector((state) => state.searchTerm);
-  s;
+
   const dispatch = useDispatch();
 
   /**
