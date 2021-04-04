@@ -10,6 +10,7 @@ import Contact from "../components/contact";
 import Produit from "../features/produit/Produit";
 import Panier from "../components/panier";
 import Footer from "../components/footer";
+import Favoris from "../features/favoriteArticle/favoriteArticle";
 const App = (props) => {
   const screenWidth = useSelector((state) => state.screenWidth);
   const dispatch = useDispatch();
@@ -53,6 +54,12 @@ const App = (props) => {
               {screenWidth < 1200 ? <HeaderMobile /> : <Header />}
               <Apropos />
               <Footer />
+            </div>
+          </Route>
+          <Route exact path="/favoris">
+            <div className="min-w-300">
+              {screenWidth < 1200 ? <HeaderMobile /> : <Header />}
+              <Favoris />
             </div>
           </Route>
           <Route exact path="/panier">

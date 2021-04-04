@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const article = {
   id: 1,
@@ -25,6 +25,15 @@ const article3 = {
   description: "Description",
   datePublication: new Date(2019, 1).toString(),
 };
+let initialState = {
+  listeArticles: [],
+  status: "inactif",
+  error: null,
+};
+export const fetchArticles = createAsyncThunk("posts/fetchPosts", async () => {
+  const response = await fetch("https://fakestoreapi.com/products?limit=5");
+  return response.posts;
+});
 
 /**
  *

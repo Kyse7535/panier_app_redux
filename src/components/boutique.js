@@ -5,7 +5,8 @@ import Trier from "../components/trier";
 import Recherche from "../features/recherche/Recherche";
 
 /**
- * affiche la pasge boutique
+ * affiche la liste d'une liste pasé en props.
+ * le compoant admet une propriété props nommée liste
  * @param {object} props
  * @returns
  */
@@ -18,7 +19,6 @@ export const Boutique = (props) => {
     <>
       <div className="container p-3 mb-5">
         <Trier />
-
         <Recherche />
         <div className="row py-4 padding-bottom-10">
           {listeArticle.length === 0 ? (
@@ -49,6 +49,7 @@ export const Boutique = (props) => {
             ))
           )}
         </div>
+        ;
       </div>
     </>
   );

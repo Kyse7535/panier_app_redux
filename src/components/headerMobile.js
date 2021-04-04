@@ -36,6 +36,12 @@ const HeaderMobile = (props) => {
     0
   );
 
+  const allFavoriteArticles = useSelector((state) => state.allFavoriteArticles);
+  const nbreFavoriteArticles = allFavoriteArticles.reduce(
+    (acc, curr) => acc + 1,
+    0
+  );
+
   return (
     <>
       <div
@@ -82,7 +88,16 @@ const HeaderMobile = (props) => {
                 onClick={closeMenu}
                 className="mx-3 py-2 link-menu d-block cursor-pointer"
               >
-                <Icon.Bag className="mr-2 text-black" size="30" />
+                <Icon.Heart className="mr-2 text-black" size="30" />
+                <Link className=" text-decoration-none " to="/favoris">
+                  Favoris ({nbreFavoriteArticles})
+                </Link>
+              </li>
+              <li
+                onClick={closeMenu}
+                className="mx-3 py-2 link-menu d-block cursor-pointer"
+              >
+                <Icon.Cart3 className="mr-2 text-black" size="30" />
                 <Link className=" text-decoration-none" to="/panier">
                   Panier({nbreArticle})
                 </Link>
@@ -92,7 +107,11 @@ const HeaderMobile = (props) => {
         </div>
       </div>
       <div className="hamburger d-flex justify-content-between py-1 px-5">
-        <div>logo1</div>
+        <div>
+          <Link className=" text-decoration-none" to="/">
+            Logo
+          </Link>
+        </div>
         <i
           className="fas fa-bars fa-2x"
           id="open-menu"

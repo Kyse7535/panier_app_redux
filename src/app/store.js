@@ -4,6 +4,9 @@ import { allArticlePanierReducer } from "../features/articleInPanier/articleInPa
 import { screenWidthReducer } from "../features/screenWidth/ScreenWidthSlice";
 import { articleQuantiteReducer } from "../features/produit/produitSlice";
 import { searchTermReducer } from "../features/recherche/RechercheSlice";
+import { allFavoriteArticlesReducer } from "../features/favoriteArticle/favoriteArticleSlice";
+import { loadStore, saveStore } from "./localStorage";
+
 const store = configureStore({
   reducer: {
     listeArticle: allArticleReducer,
@@ -11,7 +14,12 @@ const store = configureStore({
     screenWidth: screenWidthReducer,
     articleQuantite: articleQuantiteReducer,
     searchTerm: searchTermReducer,
+    allFavoriteArticles: allFavoriteArticlesReducer,
   },
+  preloadedState: loadStore(),
 });
 
+store.subscribe(() => {
+  saveStore(store.getState());
+});
 export default store;

@@ -6,6 +6,10 @@ import { updateCount } from "../produit/produitSlice";
 import * as Icon from "react-bootstrap-icons";
 import $ from "jquery";
 import Footer from "../../components/footer";
+import {
+  addArticleToFavorite,
+  removeArticleFromFavorite,
+} from "../favoriteArticle/favoriteArticleSlice";
 
 /**
  *
@@ -21,6 +25,17 @@ const Produit = (props) => {
   const screenWidth = useSelector((state) => state.screenWidth);
   const quantite = useSelector((state) => state.articleQuantite);
   const dispatch = useDispatch();
+
+  const handleAddArticle = (article, e) => {
+    e.preventDefault();
+    dispatch(addArticleToFavorite({ article }));
+  };
+  const handleRemoveArticle = (id, e) => {
+    e.preventDefault();
+    console.log("allo");
+    dispatch(removeArticleFromFavorite(id));
+  };
+
   /**
    * cette instruction cherche dans la liste des articles, celui dont le titre correspond
    * au titre qui figure dans le lien
@@ -29,6 +44,7 @@ const Produit = (props) => {
     ({ titre }) => titre === match.params.titreArticle
   );
 
+  const allFavoriteArticles = useSelector((state) => state.allFavoriteArticles);
   /**
    *
    * Affiche un apperçu du anier chaque fois qu'on ajoute un article
@@ -96,8 +112,29 @@ const Produit = (props) => {
               <input
                 type="submit"
                 value="AJOUTER AU PANIER"
-                className="w-100 py-2 fw-light rounded-0 text-white bg-dark border-0 "
+                className="w-100 py-2 mb-3 fw-light rounded-0 text-white bg-dark border-0 "
               />
+              {allFavoriteArticles.find(
+                (favorite) => favorite.id === article.id
+              ) === article ? (
+                <p className="fw-bold">
+                  <Icon.HeartFill
+                    size="20"
+                    className="mr-2 cursor-pointer text-danger"
+                    onClick={(e) => handleRemoveArticle(article.id, e)}
+                  />
+                  RETIRER DES FAVORIS
+                </p>
+              ) : (
+                <p className="fw-bold">
+                  <Icon.Heart
+                    size="20"
+                    className="mr-2 cursor-pointer"
+                    onClick={(e) => handleAddArticle(article, e)}
+                  />
+                  AJOUTER AUX FAVORIS
+                </p>
+              )}
             </form>
 
             {screenWidth < 1200 ? (
