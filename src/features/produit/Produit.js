@@ -18,10 +18,10 @@ import {
  */
 const Produit = (props) => {
   /**
-   * useRouteMatch tente de faire correspondre un URL de la m^me maniere que <Route />
+   * useRouteMatch tente de faire correspondre un URL de la même maniere que <Route />
    */
   const match = useRouteMatch();
-  const allArticles = useSelector((state) => state.listeArticle);
+  const allArticles = useSelector((state) => state.listeArticle.items);
   const screenWidth = useSelector((state) => state.screenWidth);
   const quantite = useSelector((state) => state.articleQuantite);
   const dispatch = useDispatch();
@@ -41,7 +41,7 @@ const Produit = (props) => {
    * au titre qui figure dans le lien
    */
   const article = allArticles.find(
-    ({ titre }) => titre === match.params.titreArticle
+    ({ title }) => title === decodeURI(match.params.titreArticle)
   );
 
   const allFavoriteArticles = useSelector((state) => state.allFavoriteArticles);
@@ -77,22 +77,24 @@ const Produit = (props) => {
     <>
       <div className="container h-100 pb-5">
         <div className="row">
-          <div className="col-12 text-left mt-5 mb-3 px-0 ">{match.url}</div>
+          <div className="col-12 text-left mt-5 mb-3 px-1 px-md-0 ">
+            {match.url}
+          </div>
         </div>
         <div className="row">
           <div
-            className="col-12 col-md-5 border p-2 d-flex align-items-center"
-            style={{ height: "60vh" }}
+            className="col-12 col-md-5 p-3 p-md-4 border p-2 d-flex align-items-center"
+            style={{ minHeight: "60vh" }}
           >
             <img
-              src={process.env.PUBLIC_URL + article.image}
-              alt={article.titre}
-              className=" img-fluid"
+              src={article.image}
+              alt={article.title}
+              className="photo-produit img-fluid"
             />
           </div>
           <div className="col-12 col-md-6 z-index-1 text-left px-4 py-2">
-            <p className="font-weight-bold">{article.titre}</p>
-            <p className="font-weight-bold">{article.prix}€ </p>
+            <p className="font-weight-bold">{article.title}</p>
+            <p className="font-weight-bold">{article.price}€ </p>
             <form onSubmit={(e) => handleSubmit(e)}>
               <div className="row">
                 <div className="col-3 col-md-2">
@@ -149,14 +151,7 @@ const Produit = (props) => {
         <div className="row">
           <div className="col-12 text-center text-md-left font-smaller py-3">
             <h5 className="fw-bold">Description</h5>
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Necessitatibus vitae illo molestiae odit, hic consectetur porro
-              illum ea distinctio sed blanditiis cum nobis enim exercitationem,
-              ipsum sunt sit praesentium? Mollitia distinctio minus itaque. Quis
-              velit adipisci aut minima! Consequatur aliquid obcaecati nihil aut
-              voluptas aperiam et at assumenda aspernatur expedita.
-            </p>
+            <p>{article.description}</p>
           </div>
         </div>
       </div>

@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Trier from "../components/trier";
+import { fetchArticles } from "../features/article/articleSlice";
 import Recherche from "../features/recherche/Recherche";
 
 /**
@@ -13,8 +14,28 @@ import Recherche from "../features/recherche/Recherche";
 export const Boutique = (props) => {
   const searchTerm = useSelector((state) => state.searchTerm);
   const listeArticle = useSelector((state) =>
-    state.listeArticle.filter((article) => article.titre.startsWith(searchTerm))
+    state.listeArticle.items.filter((article) =>
+      article.title.startsWith(searchTerm)
+    )
   );
+
+  const dispatch = useDispatch();
+
+  /**
+   * récupère la propriété status de la tranche de reduction listeArticle
+   */
+  const listeArticleStatus = useSelector((state) => state.listeArticle.status);
+
+  /**
+   * Envoie une action fetchArticles pour récuperer des données de l'api fetchArticle
+   * seulement si la propriéte status de listeArticle est "inactif"
+   */
+  useEffect(() => {
+    if (listeArticleStatus === "inactif") {
+      dispatch(fetchArticles());
+    }
+  }, [listeArticleStatus, dispatch]);
+  console.log(listeArticleStatus);
   return (
     <>
       <div className="container p-3 mb-5">
@@ -23,33 +44,38 @@ export const Boutique = (props) => {
         <div className="row py-4 padding-bottom-10">
           {listeArticle.length === 0 ? (
             <div className="col-12">
-              <p className="my-5">Aucun article trouvé</p>
+              {listeArticleStatus === "loading" ? (
+                <p className="my-5">Chargement...</p>
+              ) : (
+                <p className="my-5">Aucun article trouvé</p>
+              )}
             </div>
           ) : (
             listeArticle.map((article) => (
               <div
-                className="col-12 col-md-6 text-left mt-3 mb-3"
+                className="col-12 col-md-4 text-left mt-5 mb-4 d-flex flex-column align-items-center justify-content-center position-relative"
                 key={article.id}
               >
                 <Link
-                  to={`/boutique/${article.titre}`}
+                  to={`/boutique/${article.title}`}
                   className=" text-decoration-none"
                 >
                   <div>
                     <img
-                      src={process.env.PUBLIC_URL + article.image}
-                      className="photo-boutique img-fluid"
-                      alt="ordinateur"
+                      src={article.image}
+                      className="photo-boutique img-fluid mb-2"
+                      alt={article.title}
                     />
-                    <h6>{article.titre}</h6>
-                    <p>{article.prix}€</p>
+                    <div className="position-absolute top-100">
+                      <h6>{article.title}</h6>
+                      <p>{article.price}€</p>
+                    </div>
                   </div>
                 </Link>
               </div>
             ))
           )}
         </div>
-        ;
       </div>
     </>
   );

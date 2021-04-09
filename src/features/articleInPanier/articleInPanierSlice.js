@@ -6,10 +6,7 @@ import { createSlice } from "@reduxjs/toolkit";
  */
 const options = {
   name: "allArticlePanier",
-  initialState:
-    !window.sessionStorage === {}
-      ? JSON.parse(window.sessionStorage.getItem("allArticlePanier"))
-      : [],
+  initialState: [],
   reducers: {
     addArticle: (state, action) => {
       const index = state.findIndex(
@@ -18,9 +15,9 @@ const options = {
       if (index === -1) {
         const article = {
           id: action.payload.article.id,
-          titre: action.payload.article.titre,
+          title: action.payload.article.title,
           image: action.payload.article.image,
-          prix: action.payload.article.prix,
+          price: action.payload.article.price,
           quantite: parseInt(action.payload.quantite),
         };
 
@@ -44,7 +41,6 @@ const options = {
         (article) => article.id === action.payload.id
       );
       state[index].quantite = parseInt(action.payload.valeur);
-      window.sessionStorage.setItem("allArticlePanier", JSON.stringify(state));
       return state;
     },
   },

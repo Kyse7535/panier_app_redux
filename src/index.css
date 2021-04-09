@@ -22,7 +22,7 @@ a {
 }
 
 .photo-boutique {
-    width: 450px;
+    width: 250px;
     height: auto;
 }
 
@@ -39,7 +39,7 @@ a {
 }
 
 .photo-produit {
-    width: 100%;
+    width: 75%;
     height: auto;
 }
 
@@ -60,7 +60,7 @@ a {
 }
 
 .photo-panier {
-    width: 100px;
+    width: 50px;
     height: auto;
 }
 

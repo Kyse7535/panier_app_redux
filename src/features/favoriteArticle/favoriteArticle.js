@@ -12,8 +12,13 @@ const Favoris = (props) => {
 
   const handleRemoveArticle = (id, e) => {
     e.preventDefault();
-    console.log(id);
+
     dispatch(removeArticleFromFavorite(id));
+  };
+
+  const handleDeleteFavorite = (e) => {
+    e.preventDefault();
+    dispatch(deleteAllfavorite());
   };
   return (
     <div className="container">
@@ -34,12 +39,12 @@ const Favoris = (props) => {
               >
                 <div>
                   <img
-                    src={process.env.PUBLIC_URL + article.image}
+                    src={article.image}
                     className="photo-boutique img-fluid"
                     alt="ordinateur"
                   />
-                  <h6>{article.titre}</h6>
-                  <p>{article.prix}€</p>
+                  <h6>{article.title}</h6>
+                  <p>{article.price}€</p>
                 </div>
               </Link>
               <p className="fw-bold">
@@ -53,6 +58,16 @@ const Favoris = (props) => {
             </div>
           ))
         )}
+      </div>
+      <div className="row">
+        <div className="col-12">
+          <button
+            className="border-0 bg-black text-white rounded-pill py-1 px-3"
+            onClick={(e) => handleDeleteFavorite(e)}
+          >
+            Supprimer tous les favoris
+          </button>
+        </div>
       </div>
     </div>
   );

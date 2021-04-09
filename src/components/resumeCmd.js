@@ -36,7 +36,7 @@ const ResumeCmd = (props) => {
    * Fais la somme des prix des differents articles dans le panier
    */
   const coutTotal = allArticlePanier.reduce(
-    (acc, curr) => acc + curr.prix * curr.quantite,
+    (acc, curr) => acc + curr.price * curr.quantite,
     0
   );
   return (

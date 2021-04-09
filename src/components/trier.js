@@ -4,8 +4,6 @@ import {
   sortZToA,
   sortPrixAsc,
   sortPrixDesc,
-  sortDateAsc,
-  sortDateDesc,
 } from "../features/article/articleSlice";
 
 /**
@@ -23,17 +21,13 @@ const Trier = (props) => {
    */
   const sort = (val) => {
     if (val === "AtoZ") {
-      dispatch(sortAToZ("titre"));
+      dispatch(sortAToZ("title"));
     } else if (val === "ZtoA") {
-      dispatch(sortZToA("titre"));
+      dispatch(sortZToA("title"));
     } else if (val === "PrixAsc") {
-      dispatch(sortPrixAsc("prix"));
+      dispatch(sortPrixAsc("price"));
     } else if (val === "PrixDesc") {
-      dispatch(sortPrixDesc("prix"));
-    } else if (val === "dateAsc") {
-      dispatch(sortDateAsc("datePublication"));
-    } else {
-      dispatch(sortDateDesc("datePublication"));
+      dispatch(sortPrixDesc("price"));
     }
   };
   return (
@@ -48,8 +42,6 @@ const Trier = (props) => {
             <option value="ZtoA">Titre: de Z à A</option>
             <option value="PrixAsc">Prix: Ascendant</option>
             <option value="PrixDesc">Prix: Descendant</option>
-            <option value="dateAsc">Moins recent</option>
-            <option value="dateDesc">Plus recent</option>
           </select>
         </form>
       </div>

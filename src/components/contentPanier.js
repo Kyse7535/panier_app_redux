@@ -13,7 +13,7 @@ const ContentPanier = (props) => {
   const allArticlePanier = useSelector((state) => state.allArticlePanier);
   const dispatch = useDispatch();
   const coutTotal = allArticlePanier.reduce(
-    (acc, curr) => acc + curr.prix * curr.quantite,
+    (acc, curr) => acc + curr.price * curr.quantite,
     0
   );
   return (
@@ -28,13 +28,13 @@ const ContentPanier = (props) => {
               key={article.id}
             >
               <img
-                src={process.env.PUBLIC_URL + article.image}
-                alt={article.titre}
-                className="photo-panier"
+                src={article.image}
+                alt={article.title}
+                className="photo-panier mr-1"
               />
               <div>
                 <p className=" small text-left">
-                  {article.titre} <br />
+                  {article.title} <br />
                   Qtité: {article.quantite}
                 </p>
               </div>
@@ -45,7 +45,7 @@ const ContentPanier = (props) => {
                 />
                 <p className="small text-left">
                   Prix unitaire <br />
-                  {article.prix} €
+                  {article.price} €
                 </p>
               </div>
             </div>

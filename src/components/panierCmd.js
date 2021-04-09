@@ -62,13 +62,13 @@ const PanierCmd = (props) => {
         >
           <li key={uniqid()} className="small w-10">
             <img
-              src={process.env.PUBLIC_URL + article.image}
-              alt={article.titre}
+              src={article.image}
+              alt={article.title}
               className="photo-page-panier"
             />
           </li>
           <li key={uniqid()} className="small w-21">
-            {article.titre}
+            {article.title}
             <button
               className="border-0 bg-white text-black py-1 d-block px-0 text-decoration-underline"
               onClick={(e) => removeArticle(article.id, e)}
@@ -78,7 +78,7 @@ const PanierCmd = (props) => {
             </button>
           </li>
           <li key={uniqid()} className="small w-15">
-            {article.prix}€
+            {article.price}€
           </li>
           <li key={uniqid()} className="small w-15">
             <form>
@@ -92,7 +92,7 @@ const PanierCmd = (props) => {
             </form>
           </li>
           <li key={uniqid()} className="small w-15">
-            {article.prix * article.quantite} €
+            {article.price * article.quantite} €
           </li>
         </ul>
       ))}

@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-const article = {
+/*const article = {
   id: 1,
   titre: "Ordinateur-portable1, 2e version",
   image: "/ordi.jpg",
@@ -25,15 +25,7 @@ const article3 = {
   description: "Description",
   datePublication: new Date(2019, 1).toString(),
 };
-let initialState = {
-  listeArticles: [],
-  status: "inactif",
-  error: null,
-};
-export const fetchArticles = createAsyncThunk("posts/fetchPosts", async () => {
-  const response = await fetch("https://fakestoreapi.com/products?limit=5");
-  return response.posts;
-});
+*/
 
 /**
  *
@@ -46,11 +38,11 @@ const sortAscFunc = (state, par) => {
   let change = true;
   while (change) {
     change = false;
-    for (let i = 0; i < state.length - 1; i++) {
-      if (state[i][par.payload] > state[i + 1][par.payload]) {
-        const tmp = state[i];
-        state[i] = state[i + 1];
-        state[i + 1] = tmp;
+    for (let i = 0; i < state.items.length - 1; i++) {
+      if (state.items[i][par.payload] > state.items[i + 1][par.payload]) {
+        const tmp = state.items[i];
+        state.items[i] = state.items[i + 1];
+        state.items[i + 1] = tmp;
         change = true;
       }
     }
@@ -69,11 +61,11 @@ const sortDescFunc = (state, par) => {
   let change = true;
   while (change) {
     change = false;
-    for (let i = 0; i < state.length - 1; i++) {
-      if (state[i][par.payload] < state[i + 1][par.payload]) {
-        const tmp = state[i];
-        state[i] = state[i + 1];
-        state[i + 1] = tmp;
+    for (let i = 0; i < state.items.length - 1; i++) {
+      if (state.items[i][par.payload] < state.items[i + 1][par.payload]) {
+        const tmp = state.items[i];
+        state.items[i] = state.items[i + 1];
+        state.items[i + 1] = tmp;
         change = true;
       }
     }
@@ -82,12 +74,30 @@ const sortDescFunc = (state, par) => {
 };
 
 /**
+ * Recupére des articles de l'api fakestoreapi
+ */
+export const fetchArticles = createAsyncThunk(
+  "article/fetchArticles",
+  async () => {
+    const response = await fetch(
+      "https://fakestoreapi.com/products/category/electronics"
+    );
+    const articles = await response.json();
+    return articles;
+  }
+);
+
+/**
  * cette variable permet de définir le nom de la tranche de réduction, initialiser son state,
  * et creer des créateurs d'actions définis dans reducers
  */
 const options = {
   name: "article",
-  initialState: [article, article2, article3],
+  initialState: {
+    items: [],
+    status: "inactif",
+    error: null,
+  },
   reducers: {
     sortAToZ: (state, par) => sortAscFunc(state, par),
     sortZToA: (state, par) => sortDescFunc(state, par),
@@ -96,6 +106,18 @@ const options = {
     sortDateAsc: (state, par) => sortAscFunc(state, par),
     sortDateDesc: (state, par) => sortDescFunc(state, par),
   },
+  extraReducers: {
+    [fetchArticles.pending]: (state) => {
+      state.status = "loading";
+    },
+    [fetchArticles.fulfilled]: (state, action) => {
+      state.status = "success";
+      state.items = action.payload;
+    },
+    [fetchArticles.rejected]: (state) => {
+      state.status = "failed";
+    },
+  },
 };
 
 /**
@@ -103,13 +125,6 @@ const options = {
  *
  */
 const articleSlice = createSlice(options);
-
-/**
- * crée un selecteur de tranches
- * @param {object} state
- * @returns tranche de réduction su store
- */
-export const selectListeArticle = (state) => state.listeArticle;
 
 /**
  * exporte le créateur d'action défini dans la variable options
