@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-/*const article = {
+const article = {
   id: 1,
   titre: "Ordinateur-portable1, 2e version",
   image: "/ordi.jpg",
@@ -25,7 +25,6 @@ const article3 = {
   description: "Description",
   datePublication: new Date(2019, 1).toString(),
 };
-*/
 
 /**
  *

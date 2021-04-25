@@ -12,10 +12,12 @@ import Recherche from "../features/recherche/Recherche";
  * @returns
  */
 export const Boutique = (props) => {
-  const searchTerm = useSelector((state) => state.searchTerm);
+  const searchTermToLowercase = useSelector((state) =>
+    state.searchTerm.toLowerCase()
+  );
   const listeArticle = useSelector((state) =>
     state.listeArticle.items.filter((article) =>
-      article.title.startsWith(searchTerm)
+      article.title.toLowerCase().startsWith(searchTermToLowercase)
     )
   );
 
@@ -35,7 +37,6 @@ export const Boutique = (props) => {
       dispatch(fetchArticles());
     }
   }, [listeArticleStatus, dispatch]);
-  console.log(listeArticleStatus);
   return (
     <>
       <div className="container p-3 mb-5">
